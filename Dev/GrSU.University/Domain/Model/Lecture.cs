@@ -1,12 +1,8 @@
-﻿using GrSU.University.Model.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GrSU.University.Model
+﻿namespace GrSU.University.Domain.Model
 {
+    using System;
+    using Common;
+
     public class Lecture : BaseModel
     {
         public Employee Lector { get; set; }

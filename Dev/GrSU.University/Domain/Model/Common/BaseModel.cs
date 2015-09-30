@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GrSU.University.Model.Common
+﻿namespace GrSU.University.Domain.Model.Common
 {
     public abstract class BaseModel
     {
