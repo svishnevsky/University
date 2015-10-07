@@ -14,5 +14,14 @@
         public DateTime Start { get; set; }
 
         public DateTime End { get; set; }
+        public override object Clone()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Map(object objTo)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

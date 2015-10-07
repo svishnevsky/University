@@ -4,17 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0BE6C826-2388-4C5E-8DA0-2261447A3123}</ProjectGuid>
+    <ProjectGuid>{0F66C54E-90C1-461F-B942-BA7219E69498}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GrSU.University</RootNamespace>
-    <AssemblyName>GrSU.University</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>GrSU.University.Domain.Services.Static</RootNamespace>
+    <AssemblyName>GrSU.University.Domain.Services.Static</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,18 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\Common\IDomainService.cs" />
-    <Compile Include="Domain\IStudentService.cs" />
-    <Compile Include="Domain\IStudentGroupService.cs" />
-    <Compile Include="Domain\Model\Common\BaseModel.cs" />
-    <Compile Include="Domain\Model\Employee.cs" />
-    <Compile Include="Domain\Model\Room.cs" />
-    <Compile Include="Domain\Model\Student.cs" />
-    <Compile Include="Domain\Model\StudentGroup.cs" />
-    <Compile Include="Domain\Model\Lecture.cs" />
+    <Compile Include="Common\DomainService.cs" />
+    <Compile Include="StudentService.cs" />
+    <Compile Include="StudentGroupService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\GrSU.University\GrSU.University.csproj">
+      <Project>{0be6c826-2388-4c5e-8da0-2261447a3123}</Project>
+      <Name>GrSU.University</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -12,6 +12,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{AD8CFD
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{84D01008-F4AD-41A4-BC75-149691E893ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrSU.University.Domain.Services.Static.Tests", "GrSU.University.Domain.Services.Static.Tests\GrSU.University.Domain.Services.Static.Tests.csproj", "{CAFDABA1-393A-427C-8840-4C1AB8825D0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrSU.University.Domain.Services.Static", "GrSU.University.Domain.Services.Static\GrSU.University.Domain.Services.Static.csproj", "{0F66C54E-90C1-461F-B942-BA7219E69498}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,8 +28,19 @@ Global
 		{0BE6C826-2388-4C5E-8DA0-2261447A3123}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BE6C826-2388-4C5E-8DA0-2261447A3123}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BE6C826-2388-4C5E-8DA0-2261447A3123}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAFDABA1-393A-427C-8840-4C1AB8825D0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAFDABA1-393A-427C-8840-4C1AB8825D0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAFDABA1-393A-427C-8840-4C1AB8825D0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAFDABA1-393A-427C-8840-4C1AB8825D0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F66C54E-90C1-461F-B942-BA7219E69498}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F66C54E-90C1-461F-B942-BA7219E69498}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F66C54E-90C1-461F-B942-BA7219E69498}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F66C54E-90C1-461F-B942-BA7219E69498}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CAFDABA1-393A-427C-8840-4C1AB8825D0D} = {84D01008-F4AD-41A4-BC75-149691E893ED}
 	EndGlobalSection
 EndGlobal
