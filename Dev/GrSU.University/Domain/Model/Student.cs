@@ -8,8 +8,6 @@
 
         public string LastName { get; set; }
 
-        public int StudentGroupId { get; set; }
-
         public StudentGroup Group { get; set; }
     }
 }
