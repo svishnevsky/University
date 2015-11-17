@@ -43,10 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Common\IDomainServiceAsync.cs" />
     <Compile Include="Domain\Common\IDomainService.cs" />
+    <Compile Include="Domain\IEmployeeServiceAsync.cs" />
     <Compile Include="Domain\IEmployeeService.cs" />
+    <Compile Include="Domain\ILectureServiceAsync.cs" />
     <Compile Include="Domain\ILectureService.cs" />
+    <Compile Include="Domain\IRoomServiceAsync.cs" />
     <Compile Include="Domain\IRoomService.cs" />
+    <Compile Include="Domain\IStudentGroupServiceAsync.cs" />
+    <Compile Include="Domain\IStudentServiceAsync.cs" />
     <Compile Include="Domain\IStudentService.cs" />
     <Compile Include="Domain\IStudentGroupService.cs" />
     <Compile Include="Domain\Model\Common\BaseModel.cs" />
