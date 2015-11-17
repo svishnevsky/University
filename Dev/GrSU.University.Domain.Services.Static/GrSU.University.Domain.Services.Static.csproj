@@ -41,9 +41,14 @@
   <ItemGroup>
     <Compile Include="Common\DomainServiceAsync.cs" />
     <Compile Include="Common\DomainService.cs" />
+    <Compile Include="EmployeeServiceAsync.cs" />
     <Compile Include="EmployeeService.cs" />
+    <Compile Include="LectureServiceAsync.cs" />
+    <Compile Include="RoomServiceAsync.cs" />
     <Compile Include="RoomService.cs" />
     <Compile Include="LectureService.cs" />
+    <Compile Include="StudentGroupServiceAsync.cs" />
+    <Compile Include="StudentServiceAsync.cs" />
     <Compile Include="StudentService.cs" />
     <Compile Include="StudentGroupService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
