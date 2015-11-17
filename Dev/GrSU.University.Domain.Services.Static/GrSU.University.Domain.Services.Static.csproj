@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\DomainServiceAsync.cs" />
     <Compile Include="Common\DomainService.cs" />
     <Compile Include="EmployeeService.cs" />
     <Compile Include="RoomService.cs" />
