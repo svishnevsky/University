@@ -36,36 +36,5 @@
                 groupId = group == null ? default(int) : group.Id;
             }
         }
-
-        public override object Clone()
-        {
-            return new Student
-                   {
-                       Id = this.Id,
-                       FirstName = this.FirstName,
-                       GroupId = this.GroupId,
-                       Group = (StudentGroup)this.Group.Clone(),
-                       LastName = this.LastName
-                   };
-        }
-
-        public override void SetNullReferences()
-        {
-            base.SetNullReferences();
-            this.group = null;
-        }
-
-        public override void Map(object objTo)
-        {
-            if (!(objTo is Student))
-            {
-                return;
-            }
-
-            var typedObj = (Student) objTo;
-            typedObj.FirstName = this.FirstName;
-            typedObj.LastName = this.FirstName;
-            typedObj.Group = (StudentGroup)this.Group.Clone();
-        }
     }
 }

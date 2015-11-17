@@ -44,6 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\Common\IDomainService.cs" />
+    <Compile Include="Domain\IEmployeeService.cs" />
+    <Compile Include="Domain\ILectureService.cs" />
+    <Compile Include="Domain\IRoomService.cs" />
     <Compile Include="Domain\IStudentService.cs" />
     <Compile Include="Domain\IStudentGroupService.cs" />
     <Compile Include="Domain\Model\Common\BaseModel.cs" />

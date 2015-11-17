@@ -23,7 +23,7 @@ namespace GrSU.University.Domain.Services.Static
         protected override void Resolve(ref Student entity)
         {
             base.Resolve(ref entity);
-            entity.Group = entity.Id <= 0 ? null : studentGroupService.Get(entity.GroupId);
+            entity.Group = entity.GroupId <= 0 ? null : studentGroupService.Get(entity.GroupId);
         }
     }
 }

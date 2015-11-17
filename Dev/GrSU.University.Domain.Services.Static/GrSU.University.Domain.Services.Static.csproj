@@ -40,6 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\DomainService.cs" />
+    <Compile Include="EmployeeService.cs" />
+    <Compile Include="RoomService.cs" />
+    <Compile Include="LectureService.cs" />
     <Compile Include="StudentService.cs" />
     <Compile Include="StudentGroupService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
