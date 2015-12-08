@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using GrSU.University.Domain.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using GrSU.University.Audit.Services;
 
 namespace GrSU.University.Domain.Services.Static.Tests
 {
@@ -13,7 +14,7 @@ namespace GrSU.University.Domain.Services.Static.Tests
 
         public StudentGroupServiceAsyncTests()
         {
-            this.service = new StudentGroupServiceAsync();
+            this.service = new StudentGroupServiceAsync(new AuditManager());
 
             service.AddAsync(new StudentGroup
                         {

@@ -2,6 +2,7 @@
 using GrSU.University.Domain.Model;
 using System.Threading.Tasks;
 using GrSU.University.Domain.Services.Static.Common;
+using GrSU.University.Audit;
 
 namespace GrSU.University.Domain.Services.Static
 {
@@ -17,7 +18,9 @@ namespace GrSU.University.Domain.Services.Static
 
         public LectureServiceAsync(IStudentGroupServiceAsync studentGroupService,
             IEmployeeServiceAsync employeeService,
-            IRoomServiceAsync roomService)
+            IRoomServiceAsync roomService,
+            IAuditManager auditManager)
+            : base(auditManager)
         {
             this.studentGroupService = studentGroupService;
             this.employeeService = employeeService;

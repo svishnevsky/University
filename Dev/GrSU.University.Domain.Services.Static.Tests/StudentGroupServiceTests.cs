@@ -2,6 +2,7 @@
 using System.Linq;
 using GrSU.University.Domain.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using GrSU.University.Audit.Services;
 
 namespace GrSU.University.Domain.Services.Static.Tests
 {
@@ -12,7 +13,7 @@ namespace GrSU.University.Domain.Services.Static.Tests
 
         public StudentGroupServiceTests()
         {
-            this.service = new StudentGroupService();
+            this.service = new StudentGroupService(new AuditManager());
 
             service.Add(new StudentGroup
                         {

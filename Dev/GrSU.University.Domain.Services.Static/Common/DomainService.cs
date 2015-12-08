@@ -3,11 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using GrSU.University.Domain.Common;
 using GrSU.University.Domain.Model.Common;
+using GrSU.University.Audit;
 
 namespace GrSU.University.Domain.Services.Static.Common
 {
     public abstract class DomainService<T> : IDomainService<T> where T : BaseModel
     {
+        private readonly IAuditManager auditManager;
+
+        public DomainService(IAuditManager auditManager)
+        {
+            this.auditManager = auditManager;
+        }
+
         public virtual T Add(T entity)
         {
             var newEntity = (T)entity.Clone();
@@ -16,6 +24,8 @@ namespace GrSU.University.Domain.Services.Static.Common
             newEntity.SetNullReferences();
 
             GetEntities().Add(newEntity);
+
+            this.auditManager.Access(typeof(T), AccessType.Add);
 
             return (T)newEntity.Clone();
         }
@@ -32,11 +42,15 @@ namespace GrSU.University.Domain.Services.Static.Common
             var entityClone = (T) entity.Clone();
             Resolve(ref entityClone);
 
+            this.auditManager.Access(typeof(T), AccessType.Read);
+
             return entityClone;
         }
 
         public virtual List<T> Get()
         {
+            this.auditManager.Access(typeof(T), AccessType.Read);
+
             return GetEntities()
                 .Select(item =>
                 {
@@ -61,6 +75,8 @@ namespace GrSU.University.Domain.Services.Static.Common
             var clone = (T)existsEntity.Clone();
             Resolve(ref clone);
 
+            this.auditManager.Access(typeof(T), AccessType.Update);
+
             return clone;
         }
 
@@ -73,6 +89,8 @@ namespace GrSU.University.Domain.Services.Static.Common
             }
 
             GetEntities().Remove(existsEntity);
+            
+            this.auditManager.Access(typeof(T), AccessType.Delete);
         }
 
         protected abstract List<T> GetEntities();

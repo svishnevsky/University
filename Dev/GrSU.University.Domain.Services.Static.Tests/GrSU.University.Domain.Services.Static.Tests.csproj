@@ -55,6 +55,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GrSU.University.Audit.Services\GrSU.University.Audit.Services.csproj">
+      <Project>{e84cfe97-b138-4174-bc22-61bf9c982006}</Project>
+      <Name>GrSU.University.Audit.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GrSU.University.Domain.Services.Static\GrSU.University.Domain.Services.Static.csproj">
       <Project>{0f66c54e-90c1-461f-b942-ba7219e69498}</Project>
       <Name>GrSU.University.Domain.Services.Static</Name>

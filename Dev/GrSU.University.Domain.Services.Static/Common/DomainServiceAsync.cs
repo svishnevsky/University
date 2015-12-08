@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using GrSU.University.Domain.Common;
 using GrSU.University.Domain.Model.Common;
+using GrSU.University.Audit;
 
 namespace GrSU.University.Domain.Services.Static.Common
 {
@@ -11,12 +12,12 @@ namespace GrSU.University.Domain.Services.Static.Common
     {
         private readonly int delay;
 
-        public DomainServiceAsync() : this(5000)
+        public DomainServiceAsync(IAuditManager auditManager) : this(5000, auditManager)
         {
 
         }
 
-        public DomainServiceAsync(int delay)
+        public DomainServiceAsync(int delay, IAuditManager auditManager) : base(auditManager)
         {
             this.delay = delay;
         }

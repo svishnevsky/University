@@ -12,6 +12,11 @@ namespace GrSU.University.Audit.Services
 
         private List<string> history;
 
+        public AuditManager()
+        {
+            this.history = new List<string>();
+        }
+
         public void Access(Type dataType, AccessType accessType)
         {
             history.Add(string.Format("[{0}]\tDataType: {1}; AccessType: {2}.", DateTime.UtcNow, dataType.Name, accessType));
