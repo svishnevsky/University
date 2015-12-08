@@ -4,17 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0BE6C826-2388-4C5E-8DA0-2261447A3123}</ProjectGuid>
+    <ProjectGuid>{E84CFE97-B138-4174-BC22-61BF9C982006}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GrSU.University</RootNamespace>
-    <AssemblyName>GrSU.University</AssemblyName>
+    <RootNamespace>GrSU.University.Audit.Services</RootNamespace>
+    <AssemblyName>GrSU.University.Audit.Services</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,30 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Audit\AccessType.cs" />
-    <Compile Include="Audit\DataAccessEventArgs.cs" />
-    <Compile Include="Audit\IAuditManager.cs" />
-    <Compile Include="Domain\Common\IDomainServiceAsync.cs" />
-    <Compile Include="Domain\Common\IDomainService.cs" />
-    <Compile Include="Domain\IEmployeeServiceAsync.cs" />
-    <Compile Include="Domain\IEmployeeService.cs" />
-    <Compile Include="Domain\ILectureServiceAsync.cs" />
-    <Compile Include="Domain\ILectureService.cs" />
-    <Compile Include="Domain\IRoomServiceAsync.cs" />
-    <Compile Include="Domain\IRoomService.cs" />
-    <Compile Include="Domain\IStudentGroupServiceAsync.cs" />
-    <Compile Include="Domain\IStudentServiceAsync.cs" />
-    <Compile Include="Domain\IStudentService.cs" />
-    <Compile Include="Domain\IStudentGroupService.cs" />
-    <Compile Include="Domain\Model\Common\BaseModel.cs" />
-    <Compile Include="Domain\Model\Employee.cs" />
-    <Compile Include="Domain\Model\Room.cs" />
-    <Compile Include="Domain\Model\Student.cs" />
-    <Compile Include="Domain\Model\StudentGroup.cs" />
-    <Compile Include="Domain\Model\Lecture.cs" />
+    <Compile Include="AuditManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\GrSU.University\GrSU.University.csproj">
+      <Project>{0be6c826-2388-4c5e-8da0-2261447a3123}</Project>
+      <Name>GrSU.University</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -12,6 +12,8 @@ namespace GrSU.University.Audit
     {
         event DataAccessDelegate OnAccess;
 
-        void Access();
+        void Access(Type dataType, AccessType accessType);
+
+        string[] GetHostory();
     }
 }

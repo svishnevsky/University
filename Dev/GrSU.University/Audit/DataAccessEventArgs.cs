@@ -8,5 +8,8 @@ namespace GrSU.University.Audit
 {
     public class DataAccessEventArgs : EventArgs
     {
+        public Type DataType { get; set; }
+
+        public AccessType AccessType { get; set; }
     }
 }

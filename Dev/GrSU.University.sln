@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrSU.University", "GrSU.University\GrSU.University.csproj", "{0BE6C826-2388-4C5E-8DA0-2261447A3123}"
 EndProject
@@ -17,6 +17,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrSU.University.Domain.Services.Static.Tests", "GrSU.University.Domain.Services.Static.Tests\GrSU.University.Domain.Services.Static.Tests.csproj", "{CAFDABA1-393A-427C-8840-4C1AB8825D0D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrSU.University.Domain.Services.Static", "GrSU.University.Domain.Services.Static\GrSU.University.Domain.Services.Static.csproj", "{0F66C54E-90C1-461F-B942-BA7219E69498}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrSU.University.Audit.Services", "GrSU.University.Audit.Services\GrSU.University.Audit.Services.csproj", "{E84CFE97-B138-4174-BC22-61BF9C982006}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +38,10 @@ Global
 		{0F66C54E-90C1-461F-B942-BA7219E69498}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F66C54E-90C1-461F-B942-BA7219E69498}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F66C54E-90C1-461F-B942-BA7219E69498}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E84CFE97-B138-4174-BC22-61BF9C982006}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E84CFE97-B138-4174-BC22-61BF9C982006}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E84CFE97-B138-4174-BC22-61BF9C982006}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E84CFE97-B138-4174-BC22-61BF9C982006}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
