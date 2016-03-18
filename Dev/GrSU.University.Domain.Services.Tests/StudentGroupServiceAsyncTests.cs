@@ -1,28 +1,30 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using GrSU.University.Domain.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using GrSU.University.Audit.Services;
 
 namespace GrSU.University.Domain.Services.Static.Tests
 {
     [TestClass]
-    public class StudentGroupServiceTests
+    public class StudentGroupServiceAsyncTests
     {
-        private readonly IStudentGroupService service;
+        private readonly IStudentGroupServiceAsync service;
 
-        public StudentGroupServiceTests()
+        public StudentGroupServiceAsyncTests()
         {
-            this.service = new StudentGroupService();
+            this.service = new StudentGroupServiceAsync(new AuditManager());
 
-            service.Add(new StudentGroup
+            service.AddAsync(new StudentGroup
                         {
                             Name = "First group"
-                        });
+                        }).Wait();
 
-            service.Add(new StudentGroup
+            service.AddAsync(new StudentGroup
             {
                 Name = "Second group"
-            });
+            }).Wait();
         }
 
         [TestMethod]
@@ -35,7 +37,9 @@ namespace GrSU.University.Domain.Services.Static.Tests
                                Name = name
                            };
 
-            var addedGroup = service.Add(newGroup);
+            var addedGroupTask = service.AddAsync(newGroup);
+
+            var addedGroup = addedGroupTask.Result;
 
             Assert.IsNotNull(addedGroup);
             Assert.IsTrue(addedGroup.Id > 0);
@@ -45,7 +49,7 @@ namespace GrSU.University.Domain.Services.Static.Tests
         [TestMethod]
         public void GetByIdTest()
         {
-            var group = service.Get(1);
+            var group = service.GetAsync(1).Result;
 
             Assert.IsNotNull(group);
             Assert.AreEqual(group.Id, 1);
@@ -54,17 +58,17 @@ namespace GrSU.University.Domain.Services.Static.Tests
         [TestMethod]
         public void GetByIdEditTest()
         {
-            var group = service.Get(1);
+            var group = service.GetAsync(1).Result;
             var name = group.Name;
             group.Name = Guid.NewGuid().ToString();
-            var newGroup = service.Get(1);
+            var newGroup = service.GetAsync(1).Result;
             Assert.AreEqual(newGroup.Name, name);
         }   
 
         [TestMethod]
         public void GetByIdNotFoundTest()
         {
-            var group = service.Get(int.MaxValue);
+            var group = service.GetAsync(int.MaxValue).Result;
 
             Assert.IsNull(group);
         }
@@ -72,7 +76,7 @@ namespace GrSU.University.Domain.Services.Static.Tests
         [TestMethod]
         public void GetAllTest()
         {
-            var groupList = service.Get();
+            var groupList = service.GetAsync().Result;
 
             Assert.IsNotNull(groupList);
             Assert.IsTrue(groupList.Count > 0);
@@ -81,44 +85,45 @@ namespace GrSU.University.Domain.Services.Static.Tests
         [TestMethod]
         public void UpdateTest()
         {
-            var group = service.Get().First();
+            var group = service.GetAsync().Result.First();
 
             group.Name = group.Name + "1";
 
-            service.Update(group);
+            service.UpdateAsync(group).Wait();
 
-            var updatedGroup = service.Get(group.Id);
+            var updatedGroup = service.GetAsync(group.Id).Result;
 
             Assert.IsNotNull(updatedGroup);
             Assert.AreEqual(updatedGroup.Name, group.Name);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
+        [ExpectedException(typeof(AggregateException))]
         public void UpdateNotFoundTest()
         {
-            service.Update(new StudentGroup
+            service.UpdateAsync(new StudentGroup
                            {
                                Id = int.MaxValue
-                           });
+                           }).Wait();
         }
 
         [TestMethod]
         public void DeleteTest()
         {
-            var group = service.Get().Last();
-            service.Delete(group.Id);
+            var group = service.GetAsync().Result.Last();
+            service.DeleteAsync(group.Id).Wait();
 
-            var deletedGroup = service.Get(group.Id);
+            var deletedGroup = service.GetAsync(group.Id).Result;
 
             Assert.IsNull(deletedGroup);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
+        [ExpectedException(typeof(AggregateException))]
         public void DeleteNotFoundTest()
         {
-            service.Delete(int.MaxValue);
+            service.DeleteAsync(int.MaxValue)
+                .Wait();
         }
     }
 }

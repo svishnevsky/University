@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using GrSU.University.Domain.Model;
 using GrSU.University.Domain.Services.Static.Common;
+using GrSU.University.Audit;
 
 namespace GrSU.University.Domain.Services.Static
 {
@@ -10,7 +11,7 @@ namespace GrSU.University.Domain.Services.Static
 
         private readonly IStudentGroupServiceAsync studentGroupService;
 
-        public StudentServiceAsync(IStudentGroupServiceAsync studentGroupService)
+        public StudentServiceAsync(IStudentGroupServiceAsync studentGroupService, IAuditManager auditManager) : base (auditManager)
         {
             this.studentGroupService = studentGroupService;
         }

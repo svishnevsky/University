@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using GrSU.University.Domain.Model;
 using GrSU.University.Domain.Services.Static.Common;
+using GrSU.University.Audit;
 
 namespace GrSU.University.Domain.Services.Static
 {
@@ -16,7 +17,8 @@ namespace GrSU.University.Domain.Services.Static
 
         public LectureService(IStudentGroupService studentGroupService,
             IEmployeeService employeeService,
-            IRoomService roomService)
+            IRoomService roomService,
+            IAuditManager auditmanager) : base(auditmanager)
         {
             this.studentGroupService = studentGroupService;
             this.employeeService = employeeService;
