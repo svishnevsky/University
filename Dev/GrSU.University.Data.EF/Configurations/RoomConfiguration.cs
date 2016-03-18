@@ -1,14 +1,8 @@
-﻿using GrSU.University.Data.EF.Configurations.Common;
-using GrSU.University.Domain.Model;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GrSU.University.Data.EF.Configurations
+﻿namespace GrSU.University.Data.EF.Configurations
 {
+    using Common;
+    using Model;
+
     public class RoomConfiguration : BaseModelConfiguration<Room>
     {
         public RoomConfiguration()

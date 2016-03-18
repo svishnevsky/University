@@ -1,18 +1,14 @@
-﻿using GrSU.University.Data.EF.Configurations;
-using GrSU.University.Data.EF.Configurations.Common;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GrSU.University.Data.EF
+﻿namespace GrSU.University.Data.EF
 {
+    using System;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Reflection;
+    using Configurations.Common;
+
     public class DataContext : DbContext
     {
-        private static Type[] typesToRegister = Assembly.GetExecutingAssembly()
+        private static readonly Type[] TypesToRegister = Assembly.GetExecutingAssembly()
                 .GetTypes()
                 .Where(t => !string.IsNullOrEmpty(t.Namespace)
                     && t.BaseType != null
@@ -22,15 +18,23 @@ namespace GrSU.University.Data.EF
 
         public DataContext()
         {
+            Configuration.AutoDetectChangesEnabled = false;
+            Configuration.LazyLoadingEnabled = true;
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataContext, Migrations.Configuration>());
+            Database.Initialize(false);
+        }
+
+        public DataContext(string connectionString) : base(connectionString)
+        {
+            Configuration.AutoDetectChangesEnabled = false;
             Configuration.LazyLoadingEnabled = true;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            foreach (var type in typesToRegister)
+            foreach (var configurationInstance in TypesToRegister.Select(Activator.CreateInstance))
             {
-                dynamic configurationInstance = Activator.CreateInstance(type);
-                modelBuilder.Configurations.Add(configurationInstance);
+                modelBuilder.Configurations.Add((dynamic) configurationInstance);
             }
 
             base.OnModelCreating(modelBuilder);

@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{AD8CFD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{84D01008-F4AD-41A4-BC75-149691E893ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrSU.University.Domain.Services.Static.Tests", "GrSU.University.Domain.Services.Static.Tests\GrSU.University.Domain.Services.Static.Tests.csproj", "{CAFDABA1-393A-427C-8840-4C1AB8825D0D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrSU.University.Domain.Services.Tests", "GrSU.University.Domain.Services.Tests\GrSU.University.Domain.Services.Tests.csproj", "{CAFDABA1-393A-427C-8840-4C1AB8825D0D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrSU.University.Domain.Services.Static", "GrSU.University.Domain.Services.Static\GrSU.University.Domain.Services.Static.csproj", "{0F66C54E-90C1-461F-B942-BA7219E69498}"
 EndProject
@@ -25,6 +25,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrSU.University.Data.EF", "GrSU.University.Data.EF\GrSU.University.Data.EF.csproj", "{5ACDACB5-FE90-4BCD-B279-0D564EE1C9D9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrSU.University.Domain.Services", "GrSU.University.Domain.Services\GrSU.University.Domain.Services.csproj", "{09E543F0-41C9-41D1-A604-D042BAFBF73F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{1F05A855-E842-4681-AA20-AB38DEF22714}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,5 +68,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CAFDABA1-393A-427C-8840-4C1AB8825D0D} = {84D01008-F4AD-41A4-BC75-149691E893ED}
+		{5ACDACB5-FE90-4BCD-B279-0D564EE1C9D9} = {1F05A855-E842-4681-AA20-AB38DEF22714}
+		{20E1CD10-EF71-48B3-87A9-A7598EC64588} = {1F05A855-E842-4681-AA20-AB38DEF22714}
 	EndGlobalSection
 EndGlobal

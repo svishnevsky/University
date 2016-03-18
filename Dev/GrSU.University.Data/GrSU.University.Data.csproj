@@ -42,13 +42,13 @@
     <Compile Include="Common\IReadOnlyRepository.cs" />
     <Compile Include="Common\IRepository.cs" />
     <Compile Include="IRoomRepository.cs" />
+    <Compile Include="Model\Common\BaseModel.cs" />
+    <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\Lecture.cs" />
+    <Compile Include="Model\Room.cs" />
+    <Compile Include="Model\Student.cs" />
+    <Compile Include="Model\StudentGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GrSU.University\GrSU.University.csproj">
-      <Project>{0be6c826-2388-4c5e-8da0-2261447a3123}</Project>
-      <Name>GrSU.University</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

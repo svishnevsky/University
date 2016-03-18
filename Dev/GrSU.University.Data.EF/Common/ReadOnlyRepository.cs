@@ -1,26 +1,24 @@
-﻿using GrSU.University.Data.Common;
-using GrSU.University.Domain.Model.Common;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GrSU.University.Data.EF.Common
+﻿namespace GrSU.University.Data.EF.Common
 {
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using Data.Common;
+    using Model.Common;
+
     public class ReadOnlyRepository<T> : IReadOnlyRepository<T> where T : BaseModel
     {
-        protected readonly DataContext context;
+        protected readonly DataContext Context;
 
         protected DbSet<T> Set
         {
-            get { return this.context.Set<T>(); }
+            get { return this.Context.Set<T>(); }
         }
 
         public ReadOnlyRepository(DataContext context)
         {
-            this.context = context;
+            this.Context = context;
         }
 
         public virtual async Task<T> GetAsync(int id)

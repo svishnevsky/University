@@ -1,10 +1,9 @@
-﻿using System;
-using System.Reflection;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace GrSU.University.Domain.Model.Common
+﻿namespace GrSU.University.Domain.Model.Common
 {
+    using System;
+    using System.Linq;
+    using System.Reflection;
+
     public abstract class BaseModel : ICloneable
     {
         public int Id { get; set; }
