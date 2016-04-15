@@ -1,0 +1,26 @@
+﻿@using GrSU.University.Clients.Web.Models.Rooms
+@model IEnumerable<GrSU.University.Clients.Web.Models.Rooms.RoomModel>
+
+@{
+    ViewBag.Title = "Get";
+}
+
+<h2>Get</h2>
+
+<p>
+    @Html.ActionLink("Create New", "New")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SitsCount)
+        </th>
+        <th></th>
+    </tr>
+
+    @Html.DisplayForModel()
+
+</table>
