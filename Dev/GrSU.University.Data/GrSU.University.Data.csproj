@@ -41,6 +41,8 @@
   <ItemGroup>
     <Compile Include="Common\IReadOnlyRepository.cs" />
     <Compile Include="Common\IRepository.cs" />
+    <Compile Include="IStudentRepository.cs" />
+    <Compile Include="IStudentGroupRepository.cs" />
     <Compile Include="IRoomRepository.cs" />
     <Compile Include="Model\Common\BaseModel.cs" />
     <Compile Include="Model\Employee.cs" />

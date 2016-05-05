@@ -12,15 +12,21 @@ namespace GrSU.University.Clients.Web
             routes.MapRoute(
                 name: "New",
                 url: "{controller}/new",
-                defaults: new { controller = "Rooms", action = "New" }
+                defaults: new { action = "New" }
             );
 
             routes.MapRoute(
-                name: "Item",
+                name: "RoomItem",
                 url: "Rooms/{id}",
                 defaults: new { controller = "Room", action = "Index" }
             );
-            
+
+            routes.MapRoute(
+                name: "StudentGroupItem",
+                url: "StudentGroups/{id}",
+                defaults: new { controller = "StudentGroup", action = "Index" }
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}",

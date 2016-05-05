@@ -121,6 +121,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\StudentGroups\BaseStudentGroupsController.cs" />
+    <Compile Include="Controllers\StudentGroups\StudentGroupController.cs" />
+    <Compile Include="Controllers\StudentGroups\StudentGroupsController.cs" />
     <Compile Include="Controllers\Rooms\BaseRoomController.cs" />
     <Compile Include="Controllers\Rooms\RoomController.cs" />
     <Compile Include="Controllers\Rooms\RoomsController.cs" />
@@ -128,6 +131,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Rooms\RoomModel.cs" />
+    <Compile Include="Models\StudentGroups\StudentGroupModel.cs" />
+    <Compile Include="Models\StudentGroups\StudentGroupListModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +168,11 @@
     <Content Include="Views\Rooms\New.cshtml" />
     <Content Include="Views\Room\Update.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\RoomModel.cshtml" />
+    <Content Include="Views\StudentGroup\Update.cshtml" />
+    <Content Include="Views\StudentGroups\DisplayTemplates\StudentGroupListModel.cshtml" />
+    <Content Include="Views\StudentGroups\Get.cshtml" />
+    <Content Include="Views\StudentGroups\New.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\StudentGroupModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GrSU.University.Data.EF\GrSU.University.Data.EF.csproj">

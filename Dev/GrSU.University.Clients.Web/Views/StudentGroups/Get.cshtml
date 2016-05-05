@@ -1,0 +1,25 @@
+﻿@model IEnumerable<GrSU.University.Clients.Web.Models.StudentGroups.StudentGroupListModel>
+
+@{
+    ViewBag.Title = "Список групп";
+}
+
+<h2>Список групп</h2>
+
+<p>
+    @Html.ActionLink("Добавить группу", "New")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentCount)
+        </th>
+        <th></th>
+    </tr>
+
+    @Html.DisplayForModel()
+
+</table>
