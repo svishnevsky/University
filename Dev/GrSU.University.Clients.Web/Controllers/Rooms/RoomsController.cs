@@ -1,46 +1,36 @@
-﻿using System.Web.Mvc;
-
-namespace GrSU.University.Clients.Web.Controllers.Rooms
+﻿namespace GrSU.University.Clients.Web.Controllers.Rooms
 {
     using System.Linq;
     using System.Threading.Tasks;
-    using Data.EF;
-    using Domain;
+    using System.Web.Mvc;
+
     using Domain.Model;
-    using Domain.Services;
     using Models.Rooms;
 
-    public class RoomsController : Controller
+    public class RoomsController : BaseRoomController
     {
-        private readonly IRoomServiceAsync roomService;
-
-        public RoomsController()
-        {
-            this.roomService = new RoomService(new RoomRepository(new DataContext("defaultconnection")));
-        }
-
-        //
-        // GET: /Rooms/
         [HttpGet]
         [ActionName("Index")]
         public ActionResult Get()
         {
-            var rooms = this.roomService.GetAsync()
+            var rooms = base.RoomService.GetAsync()
                 .Result
                 .Select(r => new RoomModel
                 {
                     Id = r.Id,
                     SitsCount = r.SitsCount,
                     Number = r.Number
-                });
+                })
+                .ToList();
 
             return View("Get", rooms);
         }
 
         [HttpGet]
+        [ActionName("New")]
         public ActionResult New(RoomModel model)
         {
-            return View(model);
+            return View("New", model);
         }
 
         [HttpPost]
@@ -49,10 +39,10 @@ namespace GrSU.University.Clients.Web.Controllers.Rooms
         {
             if (!ModelState.IsValid)
             {
-                return New(model);
+                return View("New", model);
             }
 
-            var newRoom = await this.roomService.AddAsync(new Room
+            var newRoom = await base.RoomService.AddAsync(new Room
             {
                 SitsCount = model.SitsCount,
                 Number = model.Number

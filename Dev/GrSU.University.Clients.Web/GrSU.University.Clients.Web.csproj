@@ -121,6 +121,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Rooms\BaseRoomController.cs" />
     <Compile Include="Controllers\Rooms\RoomController.cs" />
     <Compile Include="Controllers\Rooms\RoomsController.cs" />
     <Compile Include="Global.asax.cs">

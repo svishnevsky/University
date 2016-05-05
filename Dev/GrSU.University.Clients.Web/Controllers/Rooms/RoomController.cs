@@ -1,52 +1,31 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace GrSU.University.Clients.Web.Controllers.Rooms
+﻿namespace GrSU.University.Clients.Web.Controllers.Rooms
 {
     using System.Threading.Tasks;
-    using Data.EF;
-    using Domain;
+    using System.Web.Mvc;
     using Domain.Model;
-    using Domain.Services;
     using Models.Rooms;
 
-    public class RoomController : Controller
+    public class RoomController : BaseRoomController
     {
-        private readonly IRoomServiceAsync roomService;
-
-        public RoomController()
-        {
-            this.roomService = new RoomService(new RoomRepository(new DataContext("defaultconnection")));
-        }
-        //
-        // GET: /Room/
-
-
         [HttpGet]
         [ActionName("Index")]
-
         public ActionResult Get(int id)
         {
-            var room = this.roomService.GetAsync(id).Result;
+            var room = base.RoomService.GetAsync(id).Result;
 
             if (room == null)
-
             {
                 return HttpNotFound();
             }
 
             var model = new RoomModel
-
             {
 
                 Id = room.Id,
                 Number = room.Number,
                 SitsCount = room.SitsCount
             };
+
             return View("Update", model);
         }
 
@@ -59,11 +38,10 @@ namespace GrSU.University.Clients.Web.Controllers.Rooms
                 return View("Update", model);
             }
 
-            var newRoom = await this.roomService.UpdateAsync(new Room
+            var newRoom = await base.RoomService.UpdateAsync(new Room
             {
                 SitsCount = model.SitsCount,
                 Number = model.Number,
-
                 Id = model.Id
             });
 
@@ -75,15 +53,12 @@ namespace GrSU.University.Clients.Web.Controllers.Rooms
 
             return RedirectToAction("Index", "Rooms");
         }
-
-
+        
         [HttpDelete]
-
         [ActionName("Index")]
         public async Task<ActionResult> Delete(int id)
         {
-
-            await this.roomService.DeleteAsync(id);
+            await base.RoomService.DeleteAsync(id);
             return RedirectToAction("Index", "Rooms");
         }
 	}

@@ -1,10 +1,10 @@
 ﻿@model GrSU.University.Clients.Web.Models.Rooms.RoomModel
 
 @{
-    ViewBag.Title = "New";
+    ViewBag.Title = "Новая аудитория";
 }
 
-<h2>New</h2>
+<h2>Новая аудитория</h2>
 
 @using (Html.BeginForm("Index", "Rooms", FormMethod.Post))
 {
@@ -14,5 +14,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Назад", "Index")
 </div>
