@@ -87,18 +87,23 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Buttons.en-US.resx" />
     <EmbeddedResource Include="Buttons.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Buttons.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Common.en-US.resx" />
     <EmbeddedResource Include="Common.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Common.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Entities\DisplayNames.en-US.resx" />
     <EmbeddedResource Include="Entities\DisplayNames.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>DisplayNames.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Entities\Room.en-US.resx" />
+    <EmbeddedResource Include="Entities\Student.en-US.resx" />
     <EmbeddedResource Include="Entities\StudentGroup.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>StudentGroup.Designer.cs</LastGenOutput>
@@ -107,10 +112,12 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Student.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Errors.en-US.resx" />
     <EmbeddedResource Include="Errors.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Errors.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Navigation.en-US.resx" />
     <EmbeddedResource Include="Navigation.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Navigation.Designer.cs</LastGenOutput>
@@ -119,6 +126,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Room.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Validation.en-US.resx" />
     <EmbeddedResource Include="Validation.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Validation.Designer.cs</LastGenOutput>

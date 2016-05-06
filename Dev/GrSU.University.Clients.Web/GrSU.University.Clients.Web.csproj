@@ -125,6 +125,7 @@
     <Compile Include="Controllers\BaseDataController.cs" />
     <Compile Include="Controllers\BaseListController.cs" />
     <Compile Include="Controllers\BaseEntityController.cs" />
+    <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\Students\StudentController.cs" />
     <Compile Include="Controllers\Students\StudentsController.cs" />
     <Compile Include="Controllers\StudentGroups\StudentGroupController.cs" />
@@ -187,6 +188,7 @@
     <Content Include="Views\Students\New.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\StudentModel.cshtml" />
     <Content Include="Views\Students\DisplayTemplates\GroupModel.cshtml" />
+    <Content Include="Views\Language\Get.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GrSU.University.Clients.Resources\GrSU.University.Clients.Resources.csproj">
