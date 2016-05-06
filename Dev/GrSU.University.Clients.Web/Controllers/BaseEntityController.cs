@@ -45,7 +45,7 @@
         {
             if (!ModelState.IsValid)
             {
-                return View("Update", model);
+                return View("Update", PrepairModel(model));
             }
 
             var updatedEntity = await base.DataService.UpdateAsync(this.Map(model));
@@ -53,7 +53,7 @@
             if (updatedEntity == null)
             {
                 ModelState.AddModelError("form", "Не удалось сохранить изменения.");
-                return View("Update", model);
+                return View("Update", PrepairModel(model));
             }
 
             return RedirectToAction("Index", this.listControllerName);

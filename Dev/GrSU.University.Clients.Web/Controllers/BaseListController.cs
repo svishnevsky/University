@@ -42,7 +42,7 @@
         {
             if (!ModelState.IsValid)
             {
-                return View("New", model);
+                return View("New", PrepairModel(model));
             }
 
             var newEntity = await base.DataService.AddAsync(this.Map(model));
@@ -50,7 +50,7 @@
             if (newEntity == null)
             {
                 ModelState.AddModelError("form", "Не удалось сохранить новую запись.");
-                return View("New", model);
+                return View("New", PrepairModel(model));
             }
 
             return RedirectToAction("Index");
