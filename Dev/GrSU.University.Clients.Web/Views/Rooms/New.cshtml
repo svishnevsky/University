@@ -1,0 +1,18 @@
+﻿@model GrSU.University.Clients.Web.Models.Rooms.RoomModel
+
+@{
+    ViewBag.Title = "Новая аудитория";
+}
+
+<h2>Новая аудитория</h2>
+
+@using (Html.BeginForm("Index", "Rooms", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.EditorForModel()
+}
+
+<div>
+    @Html.ActionLink("Назад", "Index")
+</div>

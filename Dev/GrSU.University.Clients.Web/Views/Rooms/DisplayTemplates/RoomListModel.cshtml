@@ -1,0 +1,18 @@
+﻿@model GrSU.University.Clients.Web.Models.Rooms.RoomListModel
+<tr>
+    <td>
+        @Html.DisplayFor(m => m.Number)
+    </td>
+    <td>
+        @Html.DisplayFor(m => m.SitsCount)
+    </td>
+    <td>
+        @Html.ActionLink("Изменить", "Index", new { id = Model.Id, controller = "Room" })
+
+        @using (Html.BeginRouteForm(new { action = "Index", controller = "Room", id = @Model.Id }))
+        {
+            @Html.HttpMethodOverride("DELETE")
+            <input type="submit" value="Удалить" class="btn-danger" />
+        }
+    </td>
+</tr>

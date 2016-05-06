@@ -1,0 +1,21 @@
+﻿@model GrSU.University.Clients.Web.Models.Students.StudentListModel
+<tr>
+    <td>
+        @Html.DisplayFor(m => m.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(m => m.LastName)
+    </td>
+    <td>
+        @Html.DisplayFor(m => m.Group)
+    </td>
+    <td>
+        @Html.ActionLink("Изменить", "Index", new { id = Model.Id, controller = "Student" })
+
+        @using (Html.BeginRouteForm(new { action = "Index", controller = "Student", id = @Model.Id }))
+        {
+            @Html.HttpMethodOverride("DELETE")
+            <input type="submit" value="Удалить" class="btn-danger" />
+        }
+    </td>
+</tr>

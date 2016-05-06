@@ -1,0 +1,18 @@
+﻿@model GrSU.University.Clients.Web.Models.StudentGroups.StudentGroupModel
+
+@{
+    ViewBag.Title = "Новая группа";
+}
+
+<h2>Новая группа</h2>
+
+@using (Html.BeginForm("Index", "StudentGroups", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.EditorForModel()
+}
+
+<div>
+    @Html.ActionLink("Назад", "Index")
+</div>

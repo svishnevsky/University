@@ -1,0 +1,22 @@
+﻿@model GrSU.University.Clients.Web.Models.Rooms.RoomModel
+
+@{
+    ViewBag.Title = "Редактирование аудитории";
+}
+
+<h2>Редактирование аудитории</h2>
+
+@using (Html.BeginForm("Index", "Room"))
+{
+
+    @Html.HttpMethodOverride("PUT")
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(m => m.Id)
+
+    @Html.EditorForModel()
+}
+
+<div>
+    @Html.ActionLink("Вернуться", "Index", "Rooms")
+</div>

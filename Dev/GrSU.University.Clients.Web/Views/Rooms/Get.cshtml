@@ -1,0 +1,25 @@
+﻿@model IEnumerable<GrSU.University.Clients.Web.Models.Rooms.RoomListModel>
+
+@{
+    ViewBag.Title = "Список аудиторий";
+}
+
+<h2>Список аудиторий</h2>
+
+<p>
+    @Html.ActionLink("Добавить аудиторию", "New")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SitsCount)
+        </th>
+        <th></th>
+    </tr>
+
+    @Html.DisplayForModel()
+
+</table>

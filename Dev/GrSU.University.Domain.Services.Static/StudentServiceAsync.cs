@@ -5,6 +5,8 @@ using GrSU.University.Audit;
 
 namespace GrSU.University.Domain.Services.Static
 {
+    using System.Threading.Tasks;
+
     public class StudentServiceAsync : DomainServiceAsync<Student>, IStudentServiceAsync
     {
         private readonly List<Student> entities = new List<Student>();
@@ -25,6 +27,11 @@ namespace GrSU.University.Domain.Services.Static
         {
             base.Resolve(ref entity);
             entity.Group = entity.GroupId <= 0 ? null : studentGroupService.GetAsync(entity.GroupId).Result;
+        }
+
+        public Task<List<Student>> GetByGroupId(int groupId)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
