@@ -19,10 +19,9 @@
 
         [HttpGet]
         [ActionName("Index")]
-        public ActionResult Get()
+        public async Task<ActionResult> Get()
         {
-            var data = base.DataService.GetAsync()
-                .Result
+            var data = (await base.DataService.GetAsync())
                 .Select(MapListModel)
                 .ToList();
 

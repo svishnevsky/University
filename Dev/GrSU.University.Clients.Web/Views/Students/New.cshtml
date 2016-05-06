@@ -1,10 +1,12 @@
-﻿@model GrSU.University.Clients.Web.Models.Students.StudentModel
+﻿@using GrSU.University.Clients.Resources
+@using GrSU.University.Clients.Resources.Entities
+@model GrSU.University.Clients.Web.Models.Students.StudentModel
 
 @{
-    ViewBag.Title = "Новый студент";
+    ViewBag.Title = Student.TitleNew;
 }
 
-<h2>Новый студент</h2>
+<h2>@Student.TitleNew</h2>
 
 @using (Html.BeginForm("Index", "Students", FormMethod.Post))
 {
@@ -14,5 +16,5 @@
 }
 
 <div>
-    @Html.ActionLink("Назад", "Index")
+    @Html.ActionLink(Navigation.GoToList, "Index")
 </div>

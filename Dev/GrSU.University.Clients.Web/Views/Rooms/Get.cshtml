@@ -1,13 +1,15 @@
-﻿@model IEnumerable<GrSU.University.Clients.Web.Models.Rooms.RoomListModel>
+﻿@using GrSU.University.Clients.Resources
+@using GrSU.University.Clients.Resources.Entities
+@model IEnumerable<GrSU.University.Clients.Web.Models.Rooms.RoomListModel>
 
 @{
-    ViewBag.Title = "Список аудиторий";
+    ViewBag.Title = Room.TitleList;
 }
 
-<h2>Список аудиторий</h2>
+<h2>@Room.TitleList</h2>
 
 <p>
-    @Html.ActionLink("Добавить аудиторию", "New")
+    @Html.ActionLink(Buttons.Create, "New")
 </p>
 <table class="table">
     <tr>

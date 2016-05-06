@@ -189,6 +189,10 @@
     <Content Include="Views\Students\DisplayTemplates\GroupModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GrSU.University.Clients.Resources\GrSU.University.Clients.Resources.csproj">
+      <Project>{d14cede9-10df-41e1-a157-a38ee266f913}</Project>
+      <Name>GrSU.University.Clients.Resources</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GrSU.University.Data.EF\GrSU.University.Data.EF.csproj">
       <Project>{5acdacb5-fe90-4bcd-b279-0d564ee1c9d9}</Project>
       <Name>GrSU.University.Data.EF</Name>

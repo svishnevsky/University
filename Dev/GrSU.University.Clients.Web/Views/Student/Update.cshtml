@@ -1,10 +1,12 @@
-﻿@model GrSU.University.Clients.Web.Models.Students.StudentModel
+﻿@using GrSU.University.Clients.Resources
+@using GrSU.University.Clients.Resources.Entities
+@model GrSU.University.Clients.Web.Models.Students.StudentModel
 
 @{
-    ViewBag.Title = "Редактирование студента";
+    ViewBag.Title = Student.TitleEdit;
 }
 
-<h2>Редактирование студента</h2>
+<h2>@Student.TitleEdit</h2>
 
 @using (Html.BeginForm("Index", "Student"))
 {
@@ -18,5 +20,5 @@
 }
 
 <div>
-    @Html.ActionLink("Вернуться", "Index", "Student")
+    @Html.ActionLink(Navigation.GoToList, "Index", "Student")
 </div>

@@ -1,13 +1,15 @@
-﻿@model IEnumerable<GrSU.University.Clients.Web.Models.StudentGroups.StudentGroupListModel>
+﻿@using GrSU.University.Clients.Resources
+@using GrSU.University.Clients.Resources.Entities
+@model IEnumerable<GrSU.University.Clients.Web.Models.StudentGroups.StudentGroupListModel>
 
 @{
-    ViewBag.Title = "Список групп";
+    ViewBag.Title = StudentGroup.TitleList;
 }
 
-<h2>Список групп</h2>
+<h2>@StudentGroup.TitleList</h2>
 
 <p>
-    @Html.ActionLink("Добавить группу", "New")
+    @Html.ActionLink(Buttons.Create, "New")
 </p>
 <table class="table">
     <tr>
