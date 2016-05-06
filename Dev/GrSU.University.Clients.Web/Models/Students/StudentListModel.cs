@@ -1,18 +1,19 @@
 ﻿namespace GrSU.University.Clients.Web.Models.Students
 {
-    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    using Resources.Entities;
 
     public class StudentListModel
     {
         public int Id { get; set; }
 
-        [DisplayName("Имя")]
+        [Display(ResourceType = typeof(DisplayNames), Name = "FirstName")]
         public string FirstName { get; set; }
 
-        [DisplayName("Фамилия")]
+        [Display(ResourceType = typeof(DisplayNames), Name = "LastName")]
         public string LastName { get; set; }
 
-        [DisplayName("Группа")]
+        [Display(ResourceType = typeof(DisplayNames), Name = "Group")]
         public GroupModel Group { get; set; }
     }
 }

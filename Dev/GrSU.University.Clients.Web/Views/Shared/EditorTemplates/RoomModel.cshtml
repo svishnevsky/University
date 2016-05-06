@@ -1,7 +1,9 @@
-﻿@model GrSU.University.Clients.Web.Models.Rooms.RoomModel
+﻿@using GrSU.University.Clients.Resources
+@using GrSU.University.Clients.Resources.Entities
+@model GrSU.University.Clients.Web.Models.Rooms.RoomModel
 
 <div class="form-horizontal">
-    <h4>Информация об аудитории</h4>
+    <h4>@Room.Info</h4>
     <hr />
     @Html.ValidationSummary(true)
     
@@ -23,7 +25,7 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Сохранить" class="btn btn-default" />
+            <input type="submit" value="@Buttons.Save" class="btn btn-default" />
         </div>
     </div>
 </div>

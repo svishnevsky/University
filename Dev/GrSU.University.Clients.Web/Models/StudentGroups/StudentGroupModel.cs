@@ -1,15 +1,16 @@
 ﻿namespace GrSU.University.Clients.Web.Models.StudentGroups
 {
-    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
+    using Resources;
+    using Resources.Entities;
 
     public class StudentGroupModel
     {
         public int Id { get; set; }
 
-        [DisplayName("Название")]
-        [Required(ErrorMessage = "Поле \"{0}\" обязательно.")]
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "Длина поля \"{0}\" должна быть от {2} до {1} символов.")]
+        [Display(ResourceType = typeof(DisplayNames), Name = "Name")]
+        [Required(ErrorMessageResourceType = typeof(Validation), ErrorMessageResourceName = "Required")]
+        [StringLength(50, MinimumLength = 2, ErrorMessageResourceType = typeof(Validation), ErrorMessageResourceName = "StringLength")]
         public string Name { get; set; }
     }
 }

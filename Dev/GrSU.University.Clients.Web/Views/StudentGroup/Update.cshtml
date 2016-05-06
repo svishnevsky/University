@@ -1,10 +1,12 @@
-﻿@model GrSU.University.Clients.Web.Models.StudentGroups.StudentGroupModel
+﻿@using GrSU.University.Clients.Resources
+@using GrSU.University.Clients.Resources.Entities
+@model GrSU.University.Clients.Web.Models.StudentGroups.StudentGroupModel
 
 @{
-    ViewBag.Title = "Редактирование группы";
+    ViewBag.Title = StudentGroup.TitleEdit;
 }
 
-<h2>Редактирование Группы</h2>
+<h2>@StudentGroup.TitleEdit</h2>
 
 @using (Html.BeginForm("Index", "StudentGroup"))
 {
@@ -18,5 +20,5 @@
 }
 
 <div>
-    @Html.ActionLink("Вернуться", "Index", "StudentGroups")
+    @Html.ActionLink(Navigation.GoToList, "Index", "StudentGroups")
 </div>

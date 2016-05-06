@@ -6,6 +6,7 @@
     using System.Web.Mvc;
     using Domain.Common;
     using Domain.Model.Common;
+    using Resources;
 
     public abstract class BaseEntityController<TService, TEntity, TModel> : BaseDataController<TService, TEntity, TModel>
         where TEntity : BaseModel
@@ -52,7 +53,7 @@
 
             if (updatedEntity == null)
             {
-                ModelState.AddModelError("form", "Не удалось сохранить изменения.");
+                ModelState.AddModelError("form", Errors.Update);
                 return View("Update", PrepairModel(model));
             }
 

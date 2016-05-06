@@ -1,0 +1,8 @@
+﻿@model IEnumerable<SelectListItem>
+           
+@using (Html.BeginForm("Index", "Language"))
+{
+    @Html.HttpMethodOverride("PUT");
+    
+    @Html.DropDownList("culture", Model, new { id = "culture",  @onchange = "this.form.submit()"});
+}

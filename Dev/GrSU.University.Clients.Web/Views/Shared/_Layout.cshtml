@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title | Университет</title>
+    <title>@ViewBag.Title | @GrSU.University.Clients.Resources.Common.AppName</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -16,14 +16,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Университет", "Index", "Rooms", null, new { @class = "navbar-brand" })
+                @Html.ActionLink(GrSU.University.Clients.Resources.Common.AppName, "Index", "Rooms", null, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Аудитории", "Index", "Rooms")</li>
-                    <li>@Html.ActionLink("Группы", "Index", "StudentGroups")</li>
-                    <li>@Html.ActionLink("Сутденты", "Index", "Students")</li>
+                    <li>@Html.ActionLink(GrSU.University.Clients.Resources.Navigation.Rooms, "Index", "Rooms")</li>
+                    <li>@Html.ActionLink(GrSU.University.Clients.Resources.Navigation.StudetGroups, "Index", "StudentGroups")</li>
+                    <li>@Html.ActionLink(GrSU.University.Clients.Resources.Navigation.Students, "Index", "Students")</li>
                 </ul>
+                <div class="right">
+                    @Html.Action("Index", "Language")
+                </div>
             </div>
         </div>
     </div>
@@ -31,7 +34,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Университет</p>
+            <p>&copy; @DateTime.Now.Year - @GrSU.University.Clients.Resources.Common.AppName</p>
         </footer>
     </div>
 

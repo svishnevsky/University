@@ -1,10 +1,12 @@
-﻿@model GrSU.University.Clients.Web.Models.Rooms.RoomModel
+﻿@using GrSU.University.Clients.Resources
+@using GrSU.University.Clients.Resources.Entities
+@model GrSU.University.Clients.Web.Models.Rooms.RoomModel
 
 @{
-    ViewBag.Title = "Редактирование аудитории";
+    ViewBag.Title = Room.TitleEdit;
 }
 
-<h2>Редактирование аудитории</h2>
+<h2>@Room.TitleEdit</h2>
 
 @using (Html.BeginForm("Index", "Room"))
 {
@@ -18,5 +20,5 @@
 }
 
 <div>
-    @Html.ActionLink("Вернуться", "Index", "Rooms")
+    @Html.ActionLink(Navigation.GoToList, "Index", "Rooms")
 </div>
