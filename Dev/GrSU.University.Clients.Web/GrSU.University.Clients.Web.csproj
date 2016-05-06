@@ -117,7 +117,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\BaseData\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -126,18 +125,22 @@
     <Compile Include="Controllers\BaseDataController.cs" />
     <Compile Include="Controllers\BaseListController.cs" />
     <Compile Include="Controllers\BaseEntityController.cs" />
-    <Compile Include="Controllers\StudentGroups\BaseStudentGroupsController.cs" />
+    <Compile Include="Controllers\Students\StudentController.cs" />
+    <Compile Include="Controllers\Students\StudentsController.cs" />
     <Compile Include="Controllers\StudentGroups\StudentGroupController.cs" />
     <Compile Include="Controllers\StudentGroups\StudentGroupsController.cs" />
-    <Compile Include="Controllers\Rooms\BaseRoomController.cs" />
     <Compile Include="Controllers\Rooms\RoomController.cs" />
     <Compile Include="Controllers\Rooms\RoomsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Rooms\RoomListModel.cs" />
     <Compile Include="Models\Rooms\RoomModel.cs" />
     <Compile Include="Models\StudentGroups\StudentGroupModel.cs" />
     <Compile Include="Models\StudentGroups\StudentGroupListModel.cs" />
+    <Compile Include="Models\Students\GroupModel.cs" />
+    <Compile Include="Models\Students\StudentListModel.cs" />
+    <Compile Include="Models\Students\StudentModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -169,7 +172,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Rooms\Get.cshtml" />
-    <Content Include="Views\Rooms\DisplayTemplates\RoomModel.cshtml" />
+    <Content Include="Views\Rooms\DisplayTemplates\RoomListModel.cshtml" />
     <Content Include="Views\Rooms\New.cshtml" />
     <Content Include="Views\Room\Update.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\RoomModel.cshtml" />
@@ -178,6 +181,12 @@
     <Content Include="Views\StudentGroups\Get.cshtml" />
     <Content Include="Views\StudentGroups\New.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\StudentGroupModel.cshtml" />
+    <Content Include="Views\Student\Update.cshtml" />
+    <Content Include="Views\Students\DisplayTemplates\StudentListModel.cshtml" />
+    <Content Include="Views\Students\Get.cshtml" />
+    <Content Include="Views\Students\New.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\StudentModel.cshtml" />
+    <Content Include="Views\Students\DisplayTemplates\GroupModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GrSU.University.Data.EF\GrSU.University.Data.EF.csproj">

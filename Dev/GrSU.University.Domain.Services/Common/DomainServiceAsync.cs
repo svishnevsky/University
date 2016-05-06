@@ -10,42 +10,42 @@
 
     public abstract class DomainServiceAsync<TModel, TEntity> : IDomainServiceAsync<TModel> where TModel : BaseModel where TEntity : Data.Model.Common.BaseModel
     {
-        private readonly IRepository<TEntity> repository;
+        protected readonly IRepository<TEntity> Repository;
 
         protected DomainServiceAsync(IRepository<TEntity> repository)
         {
-            this.repository = repository;
+            this.Repository = repository;
         }
 
         public async Task<TModel> AddAsync(TModel model)
         {
             var entity = model.Map<TEntity>();
-            entity = await this.repository.AddAsync(entity);
+            entity = await this.Repository.AddAsync(entity);
             return entity.Map<TModel>();
         }
 
         public async Task<TModel> GetAsync(int id)
         {
-            var entity = await this.repository.GetAsync(id);
+            var entity = await this.Repository.GetAsync(id);
             return entity.Map<TModel>();
         }
 
         public async Task<List<TModel>> GetAsync()
         {
-            var entities = await this.repository.GetAsync();
+            var entities = await this.Repository.GetAsync();
             return entities.Select(e => e.Map<TModel>()).ToList();
         }
 
         public async Task<TModel> UpdateAsync(TModel model)
         {
             var entity = model.Map<TEntity>();
-            entity = await this.repository.UpdateAsync(entity);
+            entity = await this.Repository.UpdateAsync(entity);
             return entity.Map<TModel>();
         }
 
         public async Task DeleteAsync(int id)
         {
-            await this.repository.DeleteAsync(id);
+            await this.Repository.DeleteAsync(id);
         }
     }
 }

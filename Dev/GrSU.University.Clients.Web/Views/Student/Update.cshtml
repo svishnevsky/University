@@ -1,0 +1,22 @@
+﻿@model GrSU.University.Clients.Web.Models.Students.StudentModel
+
+@{
+    ViewBag.Title = "Редактирование студента";
+}
+
+<h2>Редактирование студента</h2>
+
+@using (Html.BeginForm("Index", "Student"))
+{
+
+    @Html.HttpMethodOverride("PUT")
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(m => m.Id)
+
+    @Html.EditorForModel()
+}
+
+<div>
+    @Html.ActionLink("Вернуться", "Index", "Student")
+</div>

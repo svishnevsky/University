@@ -1,60 +1,35 @@
 ﻿namespace GrSU.University.Clients.Web.Controllers.Rooms
 {
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Web.Mvc;
-
+    using Data.EF;
+    using Domain;
     using Domain.Model;
+    using Domain.Services;
     using Models.Rooms;
 
-    public class RoomsController : BaseRoomController
+    public class RoomsController : BaseListController<IRoomServiceAsync, Room, RoomModel, RoomListModel>
     {
-        [HttpGet]
-        [ActionName("Index")]
-        public ActionResult Get()
+        public RoomsController()
+            : base(new RoomService(new RoomRepository(new DataContext("defaultconnection"))))
         {
-            var rooms = base.RoomService.GetAsync()
-                .Result
-                .Select(r => new RoomModel
-                {
-                    Id = r.Id,
-                    SitsCount = r.SitsCount,
-                    Number = r.Number
-                })
-                .ToList();
-
-            return View("Get", rooms);
         }
 
-        [HttpGet]
-        [ActionName("New")]
-        public ActionResult New(RoomModel model)
+        protected override Room Map(RoomModel model)
         {
-            return View("New", model);
+            return new Room
+            {
+                Number = model.Number,
+                SitsCount = model.SitsCount
+            };
         }
 
-        [HttpPost]
-        [ActionName("Index")]
-        public async Task<ActionResult> SaveNew(RoomModel model)
+        protected override RoomListModel MapListModel(Room entity)
         {
-            if (!ModelState.IsValid)
+            return new RoomListModel
             {
-                return View("New", model);
-            }
-
-            var newRoom = await base.RoomService.AddAsync(new Room
-            {
-                SitsCount = model.SitsCount,
-                Number = model.Number
-            });
-
-            if (newRoom == null)
-            {
-                ModelState.AddModelError("form", "Не удалось сохранить новую аудиторию.");
-                return New(model);
-            }
-
-            return RedirectToAction("Index");
+                Id = entity.Id,
+                Number = entity.Number,
+                SitsCount = entity.SitsCount
+            };
         }
-	}
+    }
 }

@@ -28,6 +28,12 @@ namespace GrSU.University.Clients.Web
             );
 
             routes.MapRoute(
+                name: "StudentItem",
+                url: "Students/{id}",
+                defaults: new { controller = "Student", action = "Index" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}",
                 defaults: new { controller = "Rooms", action = "Index" }

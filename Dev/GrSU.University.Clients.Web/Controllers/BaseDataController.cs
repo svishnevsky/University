@@ -7,6 +7,7 @@
     public abstract class BaseDataController<TService, TEntity, TModel> : Controller
         where TEntity : BaseModel
         where TService : IDomainServiceAsync<TEntity>
+        where TModel : class 
     {
         protected readonly TService DataService;
 
@@ -16,5 +17,10 @@
         }
 
         protected abstract TEntity Map(TModel model);
+
+        protected virtual TModel PrepairModel(TModel model = null)
+        {
+            return model;
+        }
     }
 }

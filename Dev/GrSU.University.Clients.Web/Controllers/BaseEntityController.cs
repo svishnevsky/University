@@ -10,6 +10,7 @@
     public abstract class BaseEntityController<TService, TEntity, TModel> : BaseDataController<TService, TEntity, TModel>
         where TEntity : BaseModel
         where TService : IDomainServiceAsync<TEntity>
+        where TModel : class
     {
 
         private static readonly PluralizationService PluralizationService = PluralizationService.CreateService(new CultureInfo("en-US"));

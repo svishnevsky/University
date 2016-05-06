@@ -1,0 +1,28 @@
+﻿@model IEnumerable<GrSU.University.Clients.Web.Models.Students.StudentListModel>
+
+@{
+    ViewBag.Title = "Список студентов";
+}
+
+<h2>Список студентов</h2>
+
+<p>
+    @Html.ActionLink("Добавить студента", "New")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Group)
+        </th>
+        <th></th>
+    </tr>
+
+    @Html.DisplayForModel()
+
+</table>

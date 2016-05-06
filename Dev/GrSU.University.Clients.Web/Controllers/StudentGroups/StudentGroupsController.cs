@@ -8,9 +8,12 @@
 
     public class StudentGroupsController : BaseListController<IStudentGroupServiceAsync, StudentGroup, StudentGroupModel, StudentGroupListModel>
     {
+        private readonly IStudentServiceAsync studentService;
+
         public StudentGroupsController()
             : base(new StudentGroupService(new StudentGroupRepository(new DataContext("defaultconnection"))))
         {
+            this.studentService = new StudentService(new StudentRepository(new DataContext("defaultconnection")));
         }
 
         protected override StudentGroupListModel MapListModel(StudentGroup entity)
@@ -19,7 +22,7 @@
             {
                 Id = entity.Id,
                 Name = entity.Name,
-                StudentCount = 0 // TODO: calculate student count in group
+                StudentCount = studentService.GetByGroupId(entity.Id).Result.Count
             };
         }
 

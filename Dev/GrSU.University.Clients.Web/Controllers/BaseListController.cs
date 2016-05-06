@@ -11,6 +11,7 @@
     public abstract class BaseListController<TService, TEntity, TModel, TListModel> : BaseDataController<TService, TEntity, TModel>
         where TEntity : BaseModel
         where TService : IDomainServiceAsync<TEntity>
+        where TModel : class
     {
         protected BaseListController(TService dataService) : base(dataService)
         {
@@ -30,9 +31,9 @@
 
         [HttpGet]
         [ActionName("New")]
-        public ActionResult New(TModel model)
+        public ActionResult New()
         {
-            return View("New", model);
+            return View("New", PrepairModel());
         }
 
         [HttpPost]
@@ -49,7 +50,7 @@
             if (newEntity == null)
             {
                 ModelState.AddModelError("form", "Не удалось сохранить новую запись.");
-                return New(model);
+                return View("New", model);
             }
 
             return RedirectToAction("Index");

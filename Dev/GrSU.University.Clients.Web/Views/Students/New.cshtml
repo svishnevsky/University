@@ -1,0 +1,18 @@
+﻿@model GrSU.University.Clients.Web.Models.Students.StudentModel
+
+@{
+    ViewBag.Title = "Новый студент";
+}
+
+<h2>Новый студент</h2>
+
+@using (Html.BeginForm("Index", "Students", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.EditorForModel()
+}
+
+<div>
+    @Html.ActionLink("Назад", "Index")
+</div>

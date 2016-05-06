@@ -1,65 +1,36 @@
 ﻿namespace GrSU.University.Clients.Web.Controllers.Rooms
 {
-    using System.Threading.Tasks;
-    using System.Web.Mvc;
+    using Data.EF;
+    using Domain;
     using Domain.Model;
+    using Domain.Services;
     using Models.Rooms;
 
-    public class RoomController : BaseRoomController
+    public class RoomController : BaseEntityController<IRoomServiceAsync, Room, RoomModel>
     {
-        [HttpGet]
-        [ActionName("Index")]
-        public ActionResult Get(int id)
+        public RoomController()
+            : base(new RoomService(new RoomRepository(new DataContext("defaultconnection"))))
         {
-            var room = base.RoomService.GetAsync(id).Result;
-
-            if (room == null)
-            {
-                return HttpNotFound();
-            }
-
-            var model = new RoomModel
-            {
-
-                Id = room.Id,
-                Number = room.Number,
-                SitsCount = room.SitsCount
-            };
-
-            return View("Update", model);
         }
 
-        [HttpPut]
-        [ActionName("Index")]
-        public async Task<ActionResult> Update(RoomModel model)
+        protected override Room Map(RoomModel model)
         {
-            if (!ModelState.IsValid)
+            return new Room
             {
-                return View("Update", model);
-            }
-
-            var newRoom = await base.RoomService.UpdateAsync(new Room
-            {
-                SitsCount = model.SitsCount,
+                Id = model.Id,
                 Number = model.Number,
-                Id = model.Id
-            });
-
-            if (newRoom == null)
-            {
-                ModelState.AddModelError("form", "Не удалось сохранить новую аудиторию.");
-                return View("Update", model);
-            }
-
-            return RedirectToAction("Index", "Rooms");
+                SitsCount = model.SitsCount
+            };
         }
-        
-        [HttpDelete]
-        [ActionName("Index")]
-        public async Task<ActionResult> Delete(int id)
+
+        protected override RoomModel Map(Room entity)
         {
-            await base.RoomService.DeleteAsync(id);
-            return RedirectToAction("Index", "Rooms");
+            return new RoomModel
+            {
+                Id = entity.Id,
+                Number = entity.Number,
+                SitsCount = entity.SitsCount
+            };
         }
-	}
+    }
 }
