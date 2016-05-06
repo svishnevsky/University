@@ -1,63 +1,34 @@
 ﻿namespace GrSU.University.Clients.Web.Controllers.StudentGroups
 {
-    using System.Threading.Tasks;
-    using System.Web.Mvc;
+    using Data.EF;
+    using Domain;
     using Domain.Model;
+    using Domain.Services;
     using Models.StudentGroups;
 
-    public class StudentGroupController : BaseStudentGroupsController
+    public class StudentGroupController : BaseEntityController<IStudentGroupServiceAsync, StudentGroup, StudentGroupModel>
     {
-        [HttpGet]
-        [ActionName("Index")]
-        public async Task<ActionResult> Get(int id)
+        public StudentGroupController()
+            : base(new StudentGroupService(new StudentGroupRepository(new DataContext("defaultconnection"))))
         {
-            var group = await base.StudentGroupService.GetAsync(id);
-
-            if (group == null)
-            {
-                return HttpNotFound();
-            }
-
-            var model = new StudentGroupModel
-            {
-
-                Id = group.Id,
-                Name = group.Name,
-            };
-
-            return View("Update", model);
         }
 
-        [HttpPut]
-        [ActionName("Index")]
-        public async Task<ActionResult> Update(StudentGroupModel model)
+        protected override StudentGroup Map(StudentGroupModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View("Update", model);
-            }
-
-            var newGroup = await base.StudentGroupService.UpdateAsync(new StudentGroup
+            return new StudentGroup
             {
                 Id = model.Id,
-                Name = model.Name,
-            });
-
-            if (newGroup == null)
-            {
-                ModelState.AddModelError("form", "Не удалось сохранить группу.");
-                return View("Update", model);
-            }
-
-            return RedirectToAction("Index", "StudentGroups");
+                Name = model.Name
+            };
         }
-        
-        [HttpDelete]
-        [ActionName("Index")]
-        public async Task<ActionResult> Delete(int id)
+
+        protected override StudentGroupModel Map(StudentGroup entity)
         {
-            await base.StudentGroupService.DeleteAsync(id);
-            return RedirectToAction("Index", "StudentGroups");
+            return new StudentGroupModel
+            {
+                Id = entity.Id,
+                Name = entity.Name
+            };
         }
-	}
+    }
 }

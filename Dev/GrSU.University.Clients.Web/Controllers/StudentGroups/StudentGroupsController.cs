@@ -1,59 +1,34 @@
 ﻿namespace GrSU.University.Clients.Web.Controllers.StudentGroups
 {
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Web.Mvc;
-
+    using Data.EF;
+    using Domain;
     using Domain.Model;
+    using Domain.Services;
     using Models.StudentGroups;
 
-    public class StudentGroupsController : BaseStudentGroupsController
+    public class StudentGroupsController : BaseListController<IStudentGroupServiceAsync, StudentGroup, StudentGroupModel, StudentGroupListModel>
     {
-        [HttpGet]
-        [ActionName("Index")]
-        public ActionResult Get()
+        public StudentGroupsController()
+            : base(new StudentGroupService(new StudentGroupRepository(new DataContext("defaultconnection"))))
         {
-            var groups = base.StudentGroupService.GetAsync()
-                .Result
-                .Select(r => new StudentGroupListModel
-                {
-                    Id = r.Id,
-                    Name = r.Name,
-                    StudentCount = 0 //TODO: get student count in target group
-                })
-                .ToList();
-
-            return View("Get", groups);
         }
 
-        [HttpGet]
-        [ActionName("New")]
-        public ActionResult New(StudentGroupModel model)
+        protected override StudentGroupListModel MapListModel(StudentGroup entity)
         {
-            return View("New", model);
-        }
-
-        [HttpPost]
-        [ActionName("Index")]
-        public async Task<ActionResult> SaveNew(StudentGroupModel model)
-        {
-            if (!ModelState.IsValid)
+            return new StudentGroupListModel
             {
-                return View("New", model);
-            }
+                Id = entity.Id,
+                Name = entity.Name,
+                StudentCount = 0 // TODO: calculate student count in group
+            };
+        }
 
-            var newGroup = await base.StudentGroupService.AddAsync(new StudentGroup
+        protected override StudentGroup Map(StudentGroupModel model)
+        {
+            return new StudentGroup
             {
                 Name = model.Name
-            });
-
-            if (newGroup == null)
-            {
-                ModelState.AddModelError("form", "Не удалось сохранить новую группу.");
-                return New(model);
-            }
-
-            return RedirectToAction("Index");
+            };
         }
-	}
+    }
 }
