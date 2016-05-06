@@ -1,26 +1,27 @@
 ﻿namespace GrSU.University.Clients.Web.Models.Students
 {
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
+    using Resources;
+    using Resources.Entities;
 
     public class StudentModel
     {
         public int Id { get; set; }
 
-        [DisplayName("Имя")]
-        [Required(ErrorMessage = "Поле \"{0}\" обязательно.")]
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "Длина поля \"{0}\" должна быть от {2} до {1} символов.")]
+        [Display(ResourceType = typeof(DisplayNames), Name = "FirstName")]
+        [Required(ErrorMessageResourceType = typeof(Validation), ErrorMessageResourceName = "Required")]
+        [StringLength(50, MinimumLength = 2, ErrorMessageResourceType = typeof(Validation), ErrorMessageResourceName = "StringLength")]
         public string FirstName { get; set; }
 
-        [DisplayName("Фамилия")]
-        [Required(ErrorMessage = "Поле \"{0}\" обязательно.")]
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "Длина поля \"{0}\" должна быть от {2} до {1} символов.")]
+        [Display(ResourceType = typeof(DisplayNames), Name = "LastName")]
+        [Required(ErrorMessageResourceType = typeof(Validation), ErrorMessageResourceName = "Required")]
+        [StringLength(50, MinimumLength = 2, ErrorMessageResourceType = typeof(Validation), ErrorMessageResourceName = "StringLength")]
         public string LastName { get; set; }
 
-        [DisplayName("Группа")]
-        [Required(ErrorMessage = "Поле \"{0}\" обязательно.")]
+        [Display(ResourceType = typeof(DisplayNames), Name = "Group")]
+        [Required(ErrorMessageResourceType = typeof(Validation), ErrorMessageResourceName = "Required")]
         public int GroupId { get; set; }
 
         public IEnumerable<SelectListItem> StudentGroups { get; set; }

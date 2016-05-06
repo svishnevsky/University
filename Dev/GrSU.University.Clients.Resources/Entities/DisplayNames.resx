@@ -117,16 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Create" xml:space="preserve">
-    <value>Не удалось сохоанить нову запись.</value>
+  <data name="FirstName" xml:space="preserve">
+    <value>Имя</value>
   </data>
-  <data name="Error" xml:space="preserve">
-    <value>Ошибка</value>
+  <data name="Group" xml:space="preserve">
+    <value>Группа</value>
   </data>
-  <data name="RequestProccesing" xml:space="preserve">
-    <value>Ошибка обработки запроса.</value>
+  <data name="LastName" xml:space="preserve">
+    <value>Фамилия</value>
   </data>
-  <data name="Update" xml:space="preserve">
-    <value>Не удалось сохранить изменения.</value>
+  <data name="Name" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="SitsCount" xml:space="preserve">
+    <value>Количество мест</value>
+  </data>
+  <data name="StudentCount" xml:space="preserve">
+    <value>Количество студентов</value>
   </data>
 </root>

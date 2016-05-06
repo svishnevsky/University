@@ -22,14 +22,14 @@ namespace GrSU.University.Clients.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Errors {
+    public class Validation {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Errors() {
+        internal Validation() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace GrSU.University.Clients.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GrSU.University.Clients.Resources.Errors", typeof(Errors).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GrSU.University.Clients.Resources.Validation", typeof(Validation).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,38 +61,20 @@ namespace GrSU.University.Clients.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Не удалось сохоанить нову запись..
+        ///   Looks up a localized string similar to Поле &quot;{0}&quot; обязательно..
         /// </summary>
-        public static string Create {
+        public static string Required {
             get {
-                return ResourceManager.GetString("Create", resourceCulture);
+                return ResourceManager.GetString("Required", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ошибка.
+        ///   Looks up a localized string similar to &quot;Длина поля &quot;{0}&quot; должна быть от {2} до {1} символов.&quot;.
         /// </summary>
-        public static string Error {
+        public static string StringLength {
             get {
-                return ResourceManager.GetString("Error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ошибка обработки запроса..
-        /// </summary>
-        public static string RequestProccesing {
-            get {
-                return ResourceManager.GetString("RequestProccesing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Не удалось сохранить изменения..
-        /// </summary>
-        public static string Update {
-            get {
-                return ResourceManager.GetString("Update", resourceCulture);
+                return ResourceManager.GetString("StringLength", resourceCulture);
             }
         }
     }

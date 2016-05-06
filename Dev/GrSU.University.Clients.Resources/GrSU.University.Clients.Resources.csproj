@@ -49,6 +49,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Common.resx</DependentUpon>
     </Compile>
+    <Compile Include="Entities\DisplayNames.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DisplayNames.resx</DependentUpon>
+    </Compile>
     <Compile Include="Entities\StudentGroup.Designer.cs">
       <DependentUpon>StudentGroup.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -75,6 +80,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Room.resx</DependentUpon>
     </Compile>
+    <Compile Include="Validation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Validation.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Buttons.resx">
@@ -84,6 +94,10 @@
     <EmbeddedResource Include="Common.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Common.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entities\DisplayNames.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DisplayNames.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Entities\StudentGroup.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -104,6 +118,10 @@
     <EmbeddedResource Include="Entities\Room.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Room.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Validation.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Validation.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

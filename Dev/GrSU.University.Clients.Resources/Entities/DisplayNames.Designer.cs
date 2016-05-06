@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GrSU.University.Clients.Resources {
+namespace GrSU.University.Clients.Resources.Entities {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace GrSU.University.Clients.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Errors {
+    public class DisplayNames {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Errors() {
+        internal DisplayNames() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace GrSU.University.Clients.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GrSU.University.Clients.Resources.Errors", typeof(Errors).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GrSU.University.Clients.Resources.Entities.DisplayNames", typeof(DisplayNames).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,38 +61,56 @@ namespace GrSU.University.Clients.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Не удалось сохоанить нову запись..
+        ///   Looks up a localized string similar to Имя.
         /// </summary>
-        public static string Create {
+        public static string FirstName {
             get {
-                return ResourceManager.GetString("Create", resourceCulture);
+                return ResourceManager.GetString("FirstName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ошибка.
+        ///   Looks up a localized string similar to Группа.
         /// </summary>
-        public static string Error {
+        public static string Group {
             get {
-                return ResourceManager.GetString("Error", resourceCulture);
+                return ResourceManager.GetString("Group", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ошибка обработки запроса..
+        ///   Looks up a localized string similar to Фамилия.
         /// </summary>
-        public static string RequestProccesing {
+        public static string LastName {
             get {
-                return ResourceManager.GetString("RequestProccesing", resourceCulture);
+                return ResourceManager.GetString("LastName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Не удалось сохранить изменения..
+        ///   Looks up a localized string similar to Название.
         /// </summary>
-        public static string Update {
+        public static string Name {
             get {
-                return ResourceManager.GetString("Update", resourceCulture);
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Количество мест.
+        /// </summary>
+        public static string SitsCount {
+            get {
+                return ResourceManager.GetString("SitsCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Количество студентов.
+        /// </summary>
+        public static string StudentCount {
+            get {
+                return ResourceManager.GetString("StudentCount", resourceCulture);
             }
         }
     }

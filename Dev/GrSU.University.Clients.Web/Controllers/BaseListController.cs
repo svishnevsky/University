@@ -4,9 +4,8 @@
     using System.Threading.Tasks;
     using System.Web.Mvc;
     using Domain.Common;
-    using Domain.Model;
     using Domain.Model.Common;
-    using Models.StudentGroups;
+    using Resources;
 
     public abstract class BaseListController<TService, TEntity, TModel, TListModel> : BaseDataController<TService, TEntity, TModel>
         where TEntity : BaseModel
@@ -48,7 +47,7 @@
 
             if (newEntity == null)
             {
-                ModelState.AddModelError("form", "Не удалось сохранить новую запись.");
+                ModelState.AddModelError("form", Errors.Create);
                 return View("New", PrepairModel(model));
             }
 
