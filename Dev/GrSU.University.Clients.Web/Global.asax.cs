@@ -4,7 +4,9 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.Mvc;
+using AutoMapper;
 using GrSU.University.Clients.Web.Controllers.Rooms;
+using GrSU.University.Clients.Web.Mapping;
 using GrSU.University.Data.EF;
 using GrSU.University.Data.EF.Common;
 using GrSU.University.Domain.Services;
@@ -48,6 +50,20 @@ namespace GrSU.University.Clients.Web
                         t.BaseType.GetGenericTypeDefinition() == typeof (DomainServiceAsync<,>)).ToArray())
                 .AsImplementedInterfaces()
                 .InstancePerDependency();
+
+            var profiles = typeof (WebProfile).Assembly.GetTypes().Where(t => t.BaseType != null && t.BaseType == typeof (Profile)).ToList();
+
+            var mapperConfig = new MapperConfiguration(cfg =>
+            {
+                foreach (var profile in profiles)
+                {
+                    cfg.AddProfile((Profile)Activator.CreateInstance(profile));
+                }
+            });
+
+            var mapper = mapperConfig.CreateMapper();
+
+            builder.RegisterInstance(mapper).As<IMapper>();
 
             var container = builder.Build();
 

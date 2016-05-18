@@ -1,4 +1,6 @@
-﻿namespace GrSU.University.Clients.Web.Controllers
+﻿using AutoMapper;
+
+namespace GrSU.University.Clients.Web.Controllers
 {
     using System.Linq;
     using System.Threading.Tasks;
@@ -12,7 +14,7 @@
         where TService : IDomainServiceAsync<TEntity>
         where TModel : class
     {
-        protected BaseListController(TService dataService) : base(dataService)
+        protected BaseListController(TService dataService, IMapper mapper) : base(dataService, mapper)
         {
         }
 
@@ -54,6 +56,9 @@
             return RedirectToAction("Index");
         }
 
-        protected abstract TListModel MapListModel(TEntity entity);
+        protected virtual TListModel MapListModel(TEntity entity)
+        {
+            return base.Mapper.Map<TEntity, TListModel>(entity);
+        }
     }
 }

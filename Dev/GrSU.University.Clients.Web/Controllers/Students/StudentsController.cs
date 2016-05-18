@@ -1,4 +1,6 @@
-﻿namespace GrSU.University.Clients.Web.Controllers.Students
+﻿using AutoMapper;
+
+namespace GrSU.University.Clients.Web.Controllers.Students
 {
     using System.Linq;
     using System.Web.Mvc;
@@ -10,37 +12,21 @@
     {
         private readonly IStudentGroupServiceAsync studentGroupService;
 
-        public StudentsController(IStudentServiceAsync studentService, IStudentGroupServiceAsync studentGroupService)
-            : base(studentService)
+        public StudentsController(IStudentServiceAsync studentService, IStudentGroupServiceAsync studentGroupService, IMapper mapper)
+            : base(studentService, mapper)
         {
             this.studentGroupService = studentGroupService;
         }
 
         protected override StudentListModel MapListModel(Student entity)
         {
+            var model = base.MapListModel(entity);
+
             var group = this.studentGroupService.GetAsync(entity.GroupId).Result;
 
-            return new StudentListModel
-            {
-                Id = entity.Id,
-                FirstName = entity.FirstName,
-                LastName = entity.LastName,
-                Group = new GroupModel
-                {
-                    Id = group.Id,
-                    Name = group.Name
-                }
-            };
-        }
+            model.Group = base.Mapper.Map<StudentGroup, GroupModel>(group);
 
-        protected override Student Map(StudentModel model)
-        {
-            return new Student
-            {
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                GroupId = model.GroupId
-            };
+            return model;
         }
 
         protected override StudentModel PrepairModel(StudentModel model = null)

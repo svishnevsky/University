@@ -1,4 +1,6 @@
-﻿namespace GrSU.University.Clients.Web.Controllers.Rooms
+﻿using AutoMapper;
+
+namespace GrSU.University.Clients.Web.Controllers.Rooms
 {
     using Domain;
     using Domain.Model;
@@ -6,28 +8,9 @@
 
     public class RoomsController : BaseListController<IRoomServiceAsync, Room, RoomModel, RoomListModel>
     {
-        public RoomsController(IRoomServiceAsync roomService)
-            : base(roomService)
+        public RoomsController(IRoomServiceAsync roomService, IMapper mapper)
+            : base(roomService, mapper)
         {
-        }
-
-        protected override Room Map(RoomModel model)
-        {
-            return new Room
-            {
-                Number = model.Number,
-                SitsCount = model.SitsCount
-            };
-        }
-
-        protected override RoomListModel MapListModel(Room entity)
-        {
-            return new RoomListModel
-            {
-                Id = entity.Id,
-                Number = entity.Number,
-                SitsCount = entity.SitsCount
-            };
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace GrSU.University.Clients.Web.Controllers
+﻿using AutoMapper;
+
+namespace GrSU.University.Clients.Web.Controllers
 {
     using System.Data.Entity.Design.PluralizationServices;
     using System.Globalization;
@@ -16,8 +18,8 @@
 
         private static readonly PluralizationService PluralizationService = PluralizationService.CreateService(new CultureInfo("en-US"));
 
-        protected BaseEntityController(TService dataService)
-            : base(dataService)
+        protected BaseEntityController(TService dataService, IMapper mapper)
+            : base(dataService, mapper)
         {
             this.listControllerName = PluralizationService.Pluralize(typeof (TEntity).Name);
         }
@@ -68,6 +70,9 @@
             return RedirectToAction("Index", this.listControllerName);
         }
 
-        protected abstract TModel Map(TEntity entity);
+        protected virtual TModel Map(TEntity entity)
+        {
+            return base.Mapper.Map<TEntity, TModel>(entity);
+        }
     }
 }
