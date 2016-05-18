@@ -2,21 +2,18 @@
 {
     using System.Linq;
     using System.Web.Mvc;
-    using Data.EF;
     using Domain;
     using Domain.Model;
-    using Domain.Services;
     using Models.Students;
 
     public class StudentsController : BaseListController<IStudentServiceAsync, Student, StudentModel, StudentListModel>
     {
         private readonly IStudentGroupServiceAsync studentGroupService;
 
-        public StudentsController()
-            : base(new StudentService(new StudentRepository(new DataContext("defaultconnection"))))
+        public StudentsController(IStudentServiceAsync studentService, IStudentGroupServiceAsync studentGroupService)
+            : base(studentService)
         {
-            this.studentGroupService =
-                new StudentGroupService(new StudentGroupRepository(new DataContext("defaultconnection")));
+            this.studentGroupService = studentGroupService;
         }
 
         protected override StudentListModel MapListModel(Student entity)

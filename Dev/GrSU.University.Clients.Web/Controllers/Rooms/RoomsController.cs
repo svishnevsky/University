@@ -1,15 +1,13 @@
 ﻿namespace GrSU.University.Clients.Web.Controllers.Rooms
 {
-    using Data.EF;
     using Domain;
     using Domain.Model;
-    using Domain.Services;
     using Models.Rooms;
 
     public class RoomsController : BaseListController<IRoomServiceAsync, Room, RoomModel, RoomListModel>
     {
-        public RoomsController()
-            : base(new RoomService(new RoomRepository(new DataContext("defaultconnection"))))
+        public RoomsController(IRoomServiceAsync roomService)
+            : base(roomService)
         {
         }
 
