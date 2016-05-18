@@ -148,7 +148,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Mapping\WebProfile.cs" />
+    <Compile Include="Mapping\StudentGroupProfile.cs" />
+    <Compile Include="Mapping\StudentProfile.cs" />
+    <Compile Include="Mapping\RoomProfile.cs" />
     <Compile Include="Models\Rooms\RoomListModel.cs" />
     <Compile Include="Models\Rooms\RoomModel.cs" />
     <Compile Include="Models\StudentGroups\StudentGroupModel.cs" />
