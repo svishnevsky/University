@@ -49,9 +49,9 @@ namespace GrSU.University.Clients.Web
                         t.BaseType != null && t.BaseType.IsGenericType &&
                         t.BaseType.GetGenericTypeDefinition() == typeof (DomainServiceAsync<,>)).ToArray())
                 .AsImplementedInterfaces()
-                .InstancePerDependency();
+                .InstancePerLifetimeScope();
 
-            var profiles = typeof (WebProfile).Assembly.GetTypes().Where(t => t.BaseType != null && t.BaseType == typeof (Profile)).ToList();
+            var profiles = typeof (RoomProfile).Assembly.GetTypes().Where(t => t.BaseType != null && t.BaseType == typeof (Profile)).ToList();
 
             var mapperConfig = new MapperConfiguration(cfg =>
             {

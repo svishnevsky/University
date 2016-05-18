@@ -18,17 +18,6 @@ namespace GrSU.University.Clients.Web.Controllers.Students
             this.studentGroupService = studentGroupService;
         }
 
-        protected override StudentListModel MapListModel(Student entity)
-        {
-            var model = base.MapListModel(entity);
-
-            var group = this.studentGroupService.GetAsync(entity.GroupId).Result;
-
-            model.Group = base.Mapper.Map<StudentGroup, GroupModel>(group);
-
-            return model;
-        }
-
         protected override StudentModel PrepairModel(StudentModel model = null)
         {
             var groups = this.studentGroupService.GetAsync()
